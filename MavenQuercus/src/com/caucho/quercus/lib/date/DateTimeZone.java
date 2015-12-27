@@ -168,8 +168,8 @@ public class DateTimeZone implements Cloneable
   {
     // TODO: Handle timestampBegin and timestampEnd.
     ArrayValue array = new ArrayValueImpl();
-    if (_timeZone.observesDaylightTime()) {
-      // TODO: Find all past transitions.
+    if (false) {
+    	// TODO: Find all past transitions.
       Date now = new Date();
       boolean isDST = _timeZone.inDaylightTime(now);
       // TODO: Implement a better method.

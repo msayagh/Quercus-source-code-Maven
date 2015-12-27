@@ -51,7 +51,10 @@ import javax.sql.DataSource;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -595,6 +598,7 @@ extends HttpServlet
 				end - start));
 	}
 
+
 	/**
 	 * Service.
 	 */
@@ -603,7 +607,11 @@ extends HttpServlet
 			HttpServletResponse response)
 					throws ServletException, IOException
 	{
+		long startTime = System.currentTimeMillis();
 		_impl.service(request, response);
+		long endTime   = System.currentTimeMillis();
+		long totalTime = endTime - startTime;
+		System.out.println("TIME " + totalTime + " :" + request.getRequestURL());
 	}
 
 	/**
